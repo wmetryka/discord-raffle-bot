@@ -1,3 +1,4 @@
+import random
 
 # A function that checks if the user has permissions to utilize the bot. 
 def permission_check(user, permitted_roles): 
