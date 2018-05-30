@@ -77,9 +77,7 @@ async def choose_winner(channel, initial_message, last_message):
 		if message.author.id not in participants and not utils.permission_check(message.author, permitted_roles): 
 			participants.append(message.author.id) # Logging every user that sent a message during that time into a list.
 
-	participants_number = len(participants)
-	ticket = random.randint(0,participants_number)
-	winner = participants[ticket]
+	winner = utils.pick_ticket(participants)
 
 	return winner, participants
 
