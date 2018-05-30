@@ -11,3 +11,10 @@ def permission_check(user, permitted_roles):
 			break
 		else:
 			return False
+
+def pick_ticket(participants):
+	participants_number = len(participants)
+	ticket = random.randint(0,participants_number)
+	winner = participants[ticket]
+
+	return winner
