@@ -81,6 +81,11 @@ async def choose_winner(channel, initial_message, last_message):
 
 	return winner, participants
 
+# Used to simplify the invite process. Just click the printed link.
+@client.event
+async def on_ready():
+	print('\nInvite link: https://discordapp.com/oauth2/authorize?client_id={}&scope=bot&permissions=8'.format(client.user.id))
+
 # Triggers on every event.
 @client.event
 async def on_message(message):
