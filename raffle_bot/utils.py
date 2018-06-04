@@ -16,7 +16,10 @@ def permission_check(user, permitted_roles):
 # Chooses a winner from a list of participants
 def pick_ticket(participants):
 	participants_number = len(participants)
-	ticket = random.randint(0,participants_number)
-	winner = participants[ticket]
+	if participants_number != 0:
+		ticket = random.randint(0,participants_number-1)
+		winner = participants[ticket]
+	else:
+		winner = 0
 
 	return winner
