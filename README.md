@@ -24,5 +24,6 @@ $ nohup python utopian-raffle-bot/app.py
 
 ### Starting a raffle
 ```!raffle <time limit in minutes> <full description of prize>```
+
 ex.
 ```!raffle 10 '100$'```
