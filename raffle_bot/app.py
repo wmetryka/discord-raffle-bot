@@ -33,7 +33,7 @@ async def command(message,text):
 
 # The main function for running a raffle.
 async def run_raffle(message, time_limit, prize):
-	if time_limit >= 10 and time_limit <= 30: # Default min and max time for a raffle. Replace if necessary. 
+	if time_limit >= config.settings['min_time'] and time_limit <= config.settings['max_time']: # Default min and max time for a raffle. Replace if necessary. 
 		time_limit *= 60 # Converting from seconds to minutes.
 		time_remaining = int(time_limit/10)
 
@@ -50,7 +50,7 @@ async def run_raffle(message, time_limit, prize):
 		await client.send_message(message.author, config.r_messages['raffle_result_dm'].format(participants_number))
 
 	else:
-		error_msg = await client.send_message(message.channel, config.r_messages['raffle_error_time'].format(message.author.id, time_limit, prize))
+		error_msg = await client.send_message(message.channel, config.r_messages['raffle_error_time'].format(message.author.id, config.settings['min_time'], config.setting['max_time'])
 		await asyncio.sleep(10)
 		await client.delete_message(error_msg)
 		await client.delete_message(message)
