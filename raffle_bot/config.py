@@ -5,6 +5,12 @@ permitted_roles = [
 'broadcaster', # default value
 ]
 
+# Settings for running the raffle.
+settings = {
+'min_time' : 1,
+'max_time' : 30,
+}
+
 # List of ready messages for the bot to utilize in the code.
 r_messages = {
 	"raffle_start" : "<@{}> has initiated a raffle! Type something in the chat in the next {} minutes to participate! The prize set for this raffle is '{}'!",
