@@ -13,11 +13,11 @@ A simple bot for holding real time raffles on Discord.
 ### Running
 ```
 $ git clone https://github.com/Jestemkioskiem/discord-raffle-bot
-$ cd utopian-raffle-bot
-$ virtualenv -p python3.6 utopian-raffle-bot-env
-$ source utopian-raffle-bot-env/bin/activate
+$ cd discord-raffle-bot
+$ virtualenv -p python3.6 discord-raffle-bot-env
+$ source discord-raffle-bot-env/bin/activate
 $ pip install -r requirements.txt
-$ nohup python utopian-raffle-bot/app.py
+$ nohup python discord-raffle-bot/app.py
 ```
 
 ## Usage
