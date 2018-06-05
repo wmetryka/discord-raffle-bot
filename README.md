@@ -17,7 +17,7 @@ $ cd discord-raffle-bot
 $ virtualenv -p python3.6 discord-raffle-bot-env
 $ source discord-raffle-bot-env/bin/activate
 $ pip install -r requirements.txt
-$ nohup python discord-raffle-bot/app.py
+$ nohup python raffle_bot/app.py
 ```
 
 ## Usage
