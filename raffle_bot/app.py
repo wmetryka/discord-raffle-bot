@@ -1,4 +1,5 @@
-import asyncio, discord, random, os, utils
+import asyncio, discord, random, os
+import utils, config
 from discord.ext.commands import Bot
 
 client = Bot(description="Raffle-Bot", command_prefix='!', pm_help = False)
@@ -14,16 +15,11 @@ r_messages = {
 	"raffle_result_dm" : "List of the IDs of the participants: {}. Type in '<@id>' to tag the user if needed."
 }
 
-# List of roles that will be able to initialize raffles and will not be considered for winning one. 
-permitted_roles = [
-	'broadcaster'
-]
-
 # Function that allows for creating custom commands.
 async def command(message,text):
 	text = str(text)[1:]
 
-	if utils.permission_check(message.author, permitted_roles): # Checking if the user has one of the roles in permitted_roles.
+	if utils.permission_check(message.author, config.PERMITTED_ROLES): # Checking if the user has one of the roles in permitted_roles.
 		
 		try:
 			if text.lower().startswith('raffle'): # Running the code associated with the !raffle command.
@@ -74,7 +70,7 @@ async def run_raffle(message, time_limit, prize):
 async def choose_winner(channel, initial_message, last_message):
 	participants = []
 	async for message in client.logs_from(channel, after=initial_message, before=last_message): # Going through every message after the raffle started and before it ended.
-		if message.author.id not in participants and not utils.permission_check(message.author, permitted_roles): 
+		if message.author.id not in participants and not utils.permission_check(message.author, config.PERMITTED_ROLES): 
 			participants.append(message.author.id) # Logging every user that sent a message during that time into a list.
 
 	winner = utils.pick_ticket(participants)
