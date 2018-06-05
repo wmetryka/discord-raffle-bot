@@ -18,6 +18,6 @@ r_messages = {
 	"raffle_end" : "The raffle has ended! The winner will be announced after I'm done counting!",
 	"raffle_winner" : "<@{}> is the winner of the raffle initiated by <@{}>! Congratulations! The prize set for this raffle was '{}'!",
 	"raffle_error_arguments" : "Sorry <@{}>, seems like you haven't passed enough arguments in! Type in '!raffle *time_in_minutes* *the_prize*!'",
-	"raffle_error_time" : "Sorry <@{}>, I can only hold raffles between 10 and 30 minutes long!",
+	"raffle_error_time" : "Sorry <@{}>, I can only hold raffles between {} and {} minutes long!",
 	"raffle_result_dm" : "List of the IDs of the participants: {}. Type in '<@id>' to tag the user if needed."
 }
