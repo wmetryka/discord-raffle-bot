@@ -7,6 +7,7 @@ A simple bot for holding real time raffles on Discord.
 
 ## Setup and Running
 ### Setup
+* Set the `min_time` and `max_time` in `config.py` to your desired minimal and maximal possible raffle time.
 * Add roles with the permission to use the bot to `config.py`.
 * Grant the role to the user permitted to run a raffle.
 * Grant the same role to the bot to prevent it from picking itself.
