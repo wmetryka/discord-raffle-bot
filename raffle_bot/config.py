@@ -7,8 +7,8 @@ permitted_roles = [
 
 # Settings for running the raffle.
 settings = {
-'min_time' : 1, # Minimal time limit for the raffle (in minutes).
-'max_time' : 30, # Maximal time limit for the raffle (in minutes).
+'min_time' : 1, # [INT] Minimal time limit for the raffle (in minutes).
+'max_time' : 30, # [INT] Maximal time limit for the raffle (in minutes).
 }
 
 # List of ready messages for the bot to utilize in the code.

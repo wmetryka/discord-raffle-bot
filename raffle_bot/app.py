@@ -46,12 +46,13 @@ async def run_raffle(message, time_limit, prize):
 		
 		await client.send_message(message.channel, config.r_messages['raffle_ending'].format(time_remaining, message.author.id))
 		await asyncio.sleep(time_remaining)
-
+		
+		last_message = await client.send_message(message.channel, config.r_messages['raffle_end'])
 		winner, participants = await choose_winner(message.channel, initial_message, last_message)		
+		await asyncio.sleep(10)
 		
 		if winner == 0: # Check if any users partook in the raffle.
-			last_message = await client.send_message(message.channel, config.r_messages['raffle_end'])
-			await asyncio.sleep(5)
+			await client.delete_message(last_message)
 			await client.send_message(message.channel, config.r_messages['raffle_error_no_participants'])
 			await client.send_message(message.author, config.r_messages['raffle_error_no_participants'])
 		else:
