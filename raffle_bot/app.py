@@ -77,4 +77,4 @@ async def on_message(message):
 	if message.content.startswith(client.command_prefix): # Setting up commands. You can add new commands in the commands() function at the top of the code.
 		await command(message, message.content)
 
-client.run(os.getenv('RAFFLE_TOKEN')) # set an ENV variable RAFFLE_TOKEN to the discord token of the bot.
+client.run('MzkxMjA3NjQxNTIwNzk5NzQ0.Dfhu8A.K38ZCqCSOPUeCF41H6h86h-XhQI') # set an ENV variable RAFFLE_TOKEN to the discord token of the bot.
