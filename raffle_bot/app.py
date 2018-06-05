@@ -44,9 +44,8 @@ async def run_raffle(message, time_limit, prize):
 		time_limit *= 60 # Converting from seconds to minutes.
 		await asyncio.sleep(time_limit - time_remaining)
 		
-		
-			await client.send_message(message.channel, config.r_messages['raffle_ending'].format(time_remaining, message.author.id))
-			await asyncio.sleep(time_remaining)
+		await client.send_message(message.channel, config.r_messages['raffle_ending'].format(time_remaining, message.author.id))
+		await asyncio.sleep(time_remaining)
 
 		last_message = await client.send_message(message.channel, config.r_messages['raffle_end'])
 		winner, participants = await choose_winner(message.channel, initial_message, last_message)
