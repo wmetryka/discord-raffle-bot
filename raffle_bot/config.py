@@ -7,8 +7,8 @@ permitted_roles = [
 
 # Settings for running the raffle.
 settings = {
-'min_time' : 1,
-'max_time' : 30,
+'min_time' : 1, # Minimal time limit for the raffle (in minutes).
+'max_time' : 30, # Maximal time limit for the raffle (in minutes).
 }
 
 # List of ready messages for the bot to utilize in the code.
@@ -19,5 +19,6 @@ r_messages = {
 	"raffle_winner" : "<@{}> is the winner of the raffle initiated by <@{}>! Congratulations! The prize set for this raffle was '{}'!",
 	"raffle_error_arguments" : "Sorry <@{}>, seems like you haven't passed enough arguments in! Type in '!raffle *time_in_minutes* *the_prize*!'",
 	"raffle_error_time" : "Sorry <@{}>, I can only hold raffles between {} and {} minutes long!",
+	"raffle_error_no_participants" : "The raffle is now over, but no one took part in it!",
 	"raffle_result_dm" : "List of the IDs of the participants: {}. Type in '<@id>' to tag the user if needed."
 }
