@@ -50,7 +50,7 @@ async def run_raffle(message, time_limit, prize):
 		await client.send_message(message.author, config.r_messages['raffle_result_dm'].format(participants_number))
 
 	else:
-		error_msg = await client.send_message(message.channel, config.r_messages['raffle_error_time'].format(message.author.id, config.settings['min_time'], config.setting['max_time'])
+		error_msg = await client.send_message(message.channel, config.r_messages['raffle_error_time'].format(message.author.id, config.settings['min_time'], config.setting['max_time']))
 		await asyncio.sleep(10)
 		await client.delete_message(error_msg)
 		await client.delete_message(message)
