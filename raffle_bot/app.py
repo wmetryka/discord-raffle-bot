@@ -17,7 +17,7 @@ async def command(message,text):
 
 			await run_raffle(message, time_limit, prize)
 
-		except IndexError:
+		except: # Check if all correct values were passed.
 			error_msg = await client.send_message(message.channel, config.r_messages['raffle_error_arguments'].format(message.author.id))
 			await asyncio.sleep(10)
 			await client.delete_message(error_msg)
@@ -69,7 +69,7 @@ async def run_raffle(message, time_limit, prize):
 async def choose_winner(channel, initial_message, last_message):
 	participants = []
 	async for message in client.logs_from(channel, after=initial_message, before=last_message): # Going through every message after the raffle started and before it ended.
-		if message.author.id not in participants and not utils.permission_check(message.author, config.permitted_roles): 
+		if message.author.id not in participants and not utils.permission_check(message.author, config.permitted_roles) and message.author.id != client.user.id: 
 			participants.append(message.author.id) # Logging every user that sent a message during that time into a list.
 
 	winner = utils.pick_ticket(participants)
@@ -87,4 +87,4 @@ async def on_message(message):
 	if message.content.startswith(client.command_prefix): # Setting up commands. You can add new commands in the commands() function at the top of the code.
 		await command(message, message.content)
 
-client.run('MzkxMjA3NjQxNTIwNzk5NzQ0.Dfhu8A.K38ZCqCSOPUeCF41H6h86h-XhQI') # set an ENV variable RAFFLE_TOKEN to the discord token of the bot.
+client.run(os.getenv('RAFFLE_TOKEN')) # set an ENV variable RAFFLE_TOKEN to the discord token of the bot.

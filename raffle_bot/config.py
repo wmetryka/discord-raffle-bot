@@ -17,7 +17,7 @@ r_messages = {
 	"raffle_ending" : "There are only {} minute(s) remaining for <@{}>'s raffle! Type something in the chat if you wish to participate!",
 	"raffle_end" : "The raffle has ended! The winner will be announced after I'm done counting!",
 	"raffle_winner" : "<@{}> is the winner of the raffle initiated by <@{}>! Congratulations! The prize set for this raffle was '{}'!",
-	"raffle_error_arguments" : "Sorry <@{}>, seems like you haven't passed enough arguments in! Type in '!raffle *time_in_minutes* *the_prize*!'",
+	"raffle_error_arguments" : "Sorry <@{}>, seems like the passed arguments are incorrect! Type in '!raffle *time_in_minutes* *the_prize*!'",
 	"raffle_error_time" : "Sorry <@{}>, I can only hold raffles between {} and {} minutes long!",
 	"raffle_error_no_participants" : "The raffle is now over, but no one took part in it!",
 	"raffle_result_dm" : "List of the IDs of the participants: {}. Type in '<@id>' to tag the user if needed."

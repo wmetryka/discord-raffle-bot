@@ -3,6 +3,7 @@ import random
 # A function that checks if the user has permissions to utilize the bot. 
 def permission_check(user, permitted_roles): 
 	auth_roles = []
+
 	for x in user.roles:
 		auth_roles.append(x.name.lower())
 
@@ -12,6 +13,7 @@ def permission_check(user, permitted_roles):
 			break
 		else:
 			return False
+
 		
 # Chooses a winner from a list of participants
 def pick_ticket(participants):
