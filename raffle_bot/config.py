@@ -5,20 +5,24 @@ permitted_roles = [
 'broadcaster', # default value
 ]
 
+# List of roles that will not be considered for the raffle.
+excluded_roles = [
+'friend', # default value
+]
+
 # Settings for running the raffle.
 settings = {
-'min_time' : 1, # [INT] Minimal time limit for the raffle (in minutes).
+'min_time' : 0.1, # [INT] Minimal time limit for the raffle (in minutes).
 'max_time' : 30, # [INT] Maximal time limit for the raffle (in minutes).
 }
 
 # List of ready messages for the bot to utilize in the code.
 r_messages = {
-	"raffle_start" : "<@{}> has initiated a raffle! Type something in the chat in the next {} minute(s) to participate! The prize set for this raffle is '{}'!",
-	"raffle_ending" : "There are only {} minute(s) remaining for <@{}>'s raffle! Type something in the chat if you wish to participate!",
-	"raffle_end" : "The raffle has ended! The winner will be announced after I'm done counting!",
-	"raffle_winner" : "<@{}> is the winner of the raffle initiated by <@{}>! Congratulations! The prize set for this raffle was '{}'!",
-	"raffle_error_arguments" : "Sorry <@{}>, seems like the passed arguments are incorrect! Type in '!raffle *time_in_minutes* *the_prize*!'",
-	"raffle_error_time" : "Sorry <@{}>, I can only hold raffles between {} and {} minutes long!",
-	"raffle_error_no_participants" : "The raffle is now over, but no one took part in it!",
-	"raffle_result_dm" : "List of the IDs of the participants: {}. Type in '<@id>' to tag the user if needed."
+    "raffle_start" : "<@{}> has initiated a raffle! Type something in the chat in the next {} minute(s) to participate! The prize set for this raffle is '{}'!",
+    "raffle_winner" : "<@{}> is the winner of the raffle initiated by <@{}>! Congratulations! The prize set for this raffle was '{}'!",
+    "raffle_error_arguments" : "Sorry <@{}>, seems like the passed arguments are incorrect! Type in '!raffle *time_in_minutes* *the_prize*!'",
+    "raffle_error_time" : "Sorry <@{}>, I can only hold raffles between {} and {} minutes long!",
+    "raffle_error_no_participants" : "The raffle is now over, but no one took part in it!",
+    "raffle_error_permissions" : "Sorry <@{}>, it doesn't look like you can use me...",
+    "raffle_result_dm" : "List of the IDs of the participants: {}. Type in '<@id>' to tag the user if needed.",
 }
