@@ -34,15 +34,21 @@ def command_strip(message):
 
     return args
 
+# Returns the ID of the current raffle
 def check_last_id():
     conn = sqlite3.connect(config.database)
     c = conn.cursor()
     c.execute("SELECT id FROM raffles ORDER BY id DESC LIMIT 1")
 
-    id = c.fetchall()[0][0]
+    # Exception for the first raffle.
+    try: 
+        id = c.fetchall()[0][0]
+    except IndexError: 
+        id = 0
+
     conn.close()
 
-    return id
+    return id + 1
 
 # Rerolls a raffle for a new winner.
 def reroll(raffle_id):
@@ -57,9 +63,11 @@ def reroll(raffle_id):
     c.execute("SELECT reward FROM raffles WHERE id=?", raffle_id)
     reward = c.fetchone()[0]
     # Rerolling the winner
-    participants.remove(winner)
-    new_winner = participants[random.randint(0, len(participants)-1)]
-
+    if len(participants) != 1:
+        participants.remove(winner)
+        new_winner = participants[random.randint(0, len(participants)-1)]
+    else:
+        new_winner = winner
+    
     conn.close()
-
     return new_winner, reward
