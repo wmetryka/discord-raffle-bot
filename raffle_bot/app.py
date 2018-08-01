@@ -65,10 +65,12 @@ class Raffle:
 	def use_db(self):
 		conn = sqlite3.connect('raffles.db')
 		c = conn.cursor()
-		c.execute('''CREATE TABLE if not exists raffles (id INTEGER PRIMARY KEY, date text, participants text, winner text, reward text)''')
-
+		self.raffle_id = utils.check_last_id()
+		# Creates a table if not already present.
+		c.execute('''CREATE TABLE if not exists raffles (id INTEGER PRIMARY KEY, 
+		date text, participants text, winner text, reward text)''')
+		# The querry values to insert data into the db.
 		values = [str(datetime.datetime.today()), json.dumps(self.participants), self.winner, self.reward]
-
 		c.execute("INSERT INTO raffles(date, participants, winner, reward) VALUES (?, ?, ?, ?)", values) 
 		conn.commit()
 		conn.close()
@@ -83,18 +85,29 @@ async def on_ready():
 # Triggers on every event.
 @client.event
 async def on_message(message):
-	if message.content.startswith(client.command_prefix + 'raffle'):
-		args = utils.command_strip(message)
+	args = utils.command_strip(message)
+	if message.content.startswith(client.command_prefix + 'raffle') \
+	or message.content.startswith(client.command_prefix + 'reroll'):
+		
 		if utils.permission_check(message.author, config.permitted_roles):
-			try:
-				current_raffle = Raffle(message, args[0], args[1]) # Initiate the raffle.
-				# Start up the main function, outside of the class due to asyncio limitations.
-				await current_raffle.run_raffle() 
-			except (IndexError, ValueError) as e:
+			if message.content.startswith(client.command_prefix + 'raffle'):
+				try:
+					current_raffle = Raffle(message, args[0], args[1]) # Initiate the raffle.
+					# Start up the main function, outside of the class due to asyncio limitations.
+					await current_raffle.run_raffle() 
+				except (IndexError, ValueError) as e:
+					await client.send_message(message.channel,\
+					config.r_messages['raffle_error_arguments'].format(message.author.id))
+
+			elif message.content.startswith(client.command_prefix + 'reroll'):
+				winner, reward = utils.reroll(args[0])
+
 				await client.send_message(message.channel,\
-				config.r_messages['raffle_error_arguments'].format(message.author.id))
+				config.r_messages['raffle_reroll_winner'].format(args[0], winner, reward))
+
 		else:
 			await client.send_message(message.channel,\
 			config.r_messages['raffle_error_permissions'].format(message.author.id))
+	
 
 client.run(os.getenv('RAFFLE_TOKEN')) # set an ENV variable RAFFLE_TOKEN to the discord token of the bot.

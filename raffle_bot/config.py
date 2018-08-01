@@ -16,6 +16,9 @@ settings = {
 'max_time' : 30, # [INT] Maximal time limit for the raffle (in minutes).
 }
 
+# Name of your raffles database (.db at the end)
+database = "raffles.db"
+
 # List of ready messages for the bot to utilize in the code.
 r_messages = {
     "raffle_start" : "<@{}> has initiated a raffle! Type something in the chat in the next {} minute(s) to participate! The prize set for this raffle is '{}'!",
@@ -24,5 +27,6 @@ r_messages = {
     "raffle_error_time" : "Sorry <@{}>, I can only hold raffles between {} and {} minutes long!",
     "raffle_error_no_participants" : "The raffle is now over, but no one took part in it!",
     "raffle_error_permissions" : "Sorry <@{}>, it doesn't look like you can use me...",
-    "raffle_result_dm" : "List of the IDs of the participants: {}. Type in '<@id>' to tag the user if needed.",
+    "raffle_result_dm" : "You just finished raffle #{}. Type in '!reroll `ID`' if you need to choose a new winner",
+    "raffle_reroll_winner" : "After rerolling the raffle #{}, the new winner is <@{}>! Congratulations on winning '{}'!",
 }
