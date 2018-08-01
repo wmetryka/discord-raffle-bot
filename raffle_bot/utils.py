@@ -47,7 +47,6 @@ def check_last_id():
         id = 0
 
     conn.close()
-
     return id + 1
 
 # Rerolls a raffle for a new winner.
