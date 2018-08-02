@@ -36,7 +36,7 @@ def command_strip(message):
 
 # Returns the ID of the current raffle
 def check_last_id():
-    conn = sqlite3.connect(config.database)
+    conn = sqlite3.connect(config.settings['database'])
     c = conn.cursor()
     c.execute("SELECT id FROM raffles ORDER BY id DESC LIMIT 1")
 
@@ -51,7 +51,7 @@ def check_last_id():
 
 # Rerolls a raffle for a new winner.
 def reroll(raffle_id):
-    conn = sqlite3.connect(config.database)
+    conn = sqlite3.connect(config.settings['database'])
     c = conn.cursor()
 
     # Fetching all the information

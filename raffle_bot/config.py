@@ -14,10 +14,10 @@ excluded_roles = [
 settings = {
 'min_time' : 1, # [INT] Minimal time limit for the raffle (in minutes).
 'max_time' : 30, # [INT] Maximal time limit for the raffle (in minutes).
+'database' : "raffles.db", # Name of your raffles database (.db at the end)
+'prefix' : "!", # Prefix for the commands on the discord server
 }
 
-# Name of your raffles database (.db at the end)
-database = "raffles.db"
 
 # List of ready messages for the bot to utilize in the code.
 r_messages = {
