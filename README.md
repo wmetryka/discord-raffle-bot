@@ -1,6 +1,8 @@
 # discord-raffle-bot
 A simple bot for holding real time raffles on Discord.
 
+This branch offers no database support for ligher file & simpler usage.
+
 ## Requirements
 ### Python 3.0 or newer.
 * [discord.py](https://github.com/Rapptz/discord.py) library
