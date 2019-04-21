@@ -3,7 +3,7 @@ A simple bot for holding real time raffles on Discord.
 
 ## Requirements
 ### Python 3.0 or newer.
-* [discord.py](https://github.com/Rapptz/discord.py) library
+* [discord.py](https://github.com/Rapptz/discord.py) version **earlier** than 1.0 (known as rewrite).
 
 ## Setup and Running
 ### Setup
